@@ -1,0 +1,14 @@
+{
+  "name": "prueba_comparamejor",
+  "version": "1.0.0",
+  "description": "Prueba cantidatos frontend comparamejor",
+  "main": "index.js",
+  "scripts": {
+    "server": "json-server ./api/data.json --port 9000"
+  },
+  "author": "Yeison Daza<yeison.daza@comparamejor.com>",
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "^0.12.1"
+  }
+}

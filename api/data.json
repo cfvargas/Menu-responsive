@@ -1,0 +1,63 @@
+{
+  "menu": [
+    {
+      "name": "soat",
+      "url": "#soat",
+      "submenu": []
+    },
+    {
+      "name": "seguros",
+      "url": "#seguros",
+      "submenu": [
+        {
+          "name": "Todo riesgo",
+          "url": "#todo_riesgo",
+          "submenu": []
+        },
+        {
+          "name": "soat",
+          "url": "#soat",
+          "submenu": []
+        },
+        {
+          "name": "aseguradoras",
+          "url": "#aseguradoras",
+          "submenu": []
+        }
+      ]
+    },
+    {
+      "name": "credito",
+      "url": "#credito",
+      "submenu": [
+        {
+          "name": "cuotas",
+          "url": "#cuotas",
+          "submenu": []
+        },
+        {
+          "name": "interes",
+          "url": "#interes",
+          "submenu": [
+            {
+              "name": "tasas",
+              "url": "#tasas",
+              "submenu": [
+                {
+                  "name": "altas",
+                  "url": "#altas",
+                  "submenu": []
+                },
+                {
+                  "name": "bajas",
+                  "url": "#bajas",
+                  "submenu": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

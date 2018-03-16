@@ -1,0 +1,134 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  color: #3d3d3d;
+  background-color: lightseagreen;  
+}
+
+.nav-container {
+  width: 100%;
+  position: relative;
+  padding: 1rem;
+}
+
+.nav {
+  width: 100%;
+  max-width: 300px;
+  position: fixed;
+  left: -100%;
+  top: 0;
+  background-color: #fff;
+  height: 100vh;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  transition: .3s all;
+}
+
+.nav ul {
+  list-style: none;
+  display: none;
+  height: 0;
+  padding-left: 2rem;
+}
+
+.nav > ul {
+  display: block;
+  height: auto;
+  padding-left: 0;
+}
+
+.nav > ul .nav-item:hover  > ul {
+  display: block;
+  height: auto;
+  background-color: rgba(240, 128, 128, .05);
+}
+
+.nav-link {
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding: 1.5rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.nav-item:hover {
+  background-color: rgba(240, 128, 128, .5);
+}
+
+.nav-btn {
+  margin-left: 85%;
+  background-color: transparent;
+  border: none;  
+}
+
+.nav-btn span {
+  width: 25px;
+  height: 2px;
+  display: block;
+  margin: 5px;
+  background-color: #fff;
+}
+
+.nav--show {
+  left: 0;
+}
+
+@media screen and (min-width: 720px) {
+  .nav-btn {
+    display: none;
+  }
+
+  .nav {
+    position: static;
+    height: auto;
+    max-width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+
+  .nav ul {
+    position: absolute;
+    padding-left: 0;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+
+  .nav > ul {
+    display: flex;
+    position: static;
+    padding-left: 1rem;
+  }
+
+ .nav-item, .nav-link {
+    background-color: #fff;
+  }
+
+  .nav-link {
+    min-width: 200px;
+    padding: .8rem;
+  }
+
+  .nav-link:hover {
+    color: lightcoral;
+  }
+
+  .nav > ul > .nav-item {
+    max-width: 100px;
+  }
+
+  .nav-item {
+    max-width: 200px;
+    background-color: #fff;
+    margin-left: 2rem !important;
+  }
+
+  .nav > ul .nav-item:hover > ul {
+    background-color: #fff;
+  }
+}

@@ -1,18 +1,17 @@
 'use strict'
 
-function getData () {
+function getData (url) {
   const headers = new window.Headers({
     'Accept': 'application/json',
     'Content-Type': 'application/json'
   })
 
-  return window.fetch('http://localhost:9000/menu', {
+  return window.fetch(url, {
     method: 'GET',
     mode: 'cors',
     headers
   })
     .then(res => res.json())
-    .then(res => res)
 }
 
 function createTag (name) {
@@ -39,8 +38,8 @@ function createList (list) {
 
     const li = createTag('li')(link)
     li.setAttribute('class', 'nav-item')
-    const submenu = item.submenu.length && createList(item.submenu)
 
+    const submenu = item.submenu.length && createList(item.submenu)
     if (submenu) {
       li.appendChild(submenu)
     }
@@ -50,6 +49,14 @@ function createList (list) {
   }, createTag('ul')(''))
 }
 
-getData()
+const nav = document.getElementById('nav')
+getData('http://localhost:9000/menu')
   .then(createList)
-  .then(list => document.getElementById('nav').appendChild(list))
+  .then(list => nav.appendChild(list))
+
+function toggleNav () {
+  nav.classList.toggle('nav--show')
+}
+
+const btn = document.getElementById('nav-btn')
+btn.addEventListener('click', toggleNav)

@@ -6,7 +6,7 @@ function getData (url) {
     'Content-Type': 'application/json'
   })
 
-  return window.fetch(url, {
+  return fetch(url, {
     method: 'GET',
     mode: 'cors',
     headers
@@ -14,49 +14,46 @@ function getData (url) {
     .then(res => res.json())
 }
 
-function createTag (name) {
+function createTag (name, child) {
   const tag = document.createElement(name)
 
-  return (element) => {
-    if (typeof element === 'object') {
-      tag.appendChild(element)
-      return tag
-    }
-
-    const child = document.createTextNode(element)
-    tag.appendChild(child)
-
-    return tag
+  if (typeof child === 'string') {
+    child = document.createTextNode(child)
   }
+
+  tag.appendChild(child)
+  return tag
 }
 
-function createList (list) {
+function createList (list, className) {
   return list.reduce((acc, item) => {
-    const link = createTag('a')(item.name)
+    const link = createTag('a', item.name)
     link.setAttribute('href', item.url)
     link.setAttribute('class', 'nav-link')
 
-    const li = createTag('li')(link)
+    const li = createTag('li', link)
     li.setAttribute('class', 'nav-item')
 
-    const submenu = item.submenu.length && createList(item.submenu)
-    if (submenu) {
+    if (item.submenu.length) {
+      const submenu = createList(item.submenu, 'nav-submenu')
       li.appendChild(submenu)
     }
 
     acc.appendChild(li)
+    acc.setAttribute('class', className)
     return acc
-  }, createTag('ul')(''))
+  }, createTag('ul', ''))
 }
 
 const nav = document.getElementById('nav')
-getData('http://localhost:9000/menu')
-  .then(createList)
-  .then(list => nav.appendChild(list))
+const btn = document.getElementById('nav-btn')
 
 function toggleNav () {
   nav.classList.toggle('nav--show')
 }
 
-const btn = document.getElementById('nav-btn')
 btn.addEventListener('click', toggleNav)
+
+getData('http://localhost:9595/menu')
+  .then(data => createList(data, 'nav-list'))
+  .then(list => nav.appendChild(list))

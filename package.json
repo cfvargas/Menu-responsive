@@ -4,8 +4,8 @@
   "description": "Prueba cantidatos frontend comparamejor",
   "main": "index.js",
   "scripts": {
-    "start": "http-server src/ -p 8080",
-    "server": "json-server ./api/data.json --port 9000 --addsomething"
+    "start": "http-server src/ -p 7575",
+    "server": "json-server ./api/data.json --port 9595 --addsomething"
   },
   "author": "Yeison Daza<yeison.daza@comparamejor.com>",
   "license": "MIT",

@@ -1,3 +1,8 @@
+:root {
+  --color-blue: #5077dc;
+  --color-alfa-blue: rgba(80, 119, 220, 0.5);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -7,13 +12,22 @@
 body {
   font-family: sans-serif;
   color: #3d3d3d;
-  background-color: lightseagreen;  
 }
 
-.nav-container {
+.header {
   width: 100%;
   position: relative;
   padding: 1rem;
+  background-color: var(--color-blue);
+}
+
+.brand {
+  color: #fff;
+  font-weight: bold;
+  font-size: 24px;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  display: inline-block;
 }
 
 .nav {
@@ -30,21 +44,25 @@ body {
 
 .nav ul {
   list-style: none;
-  display: none;
+  visibility: hidden;
   height: 0;
+  opacity: 0;
   padding-left: 2rem;
+  transition: .2s all;
 }
 
 .nav > ul {
-  display: block;
+  visibility: visible;
   height: auto;
+  opacity: 1;
   padding-left: 0;
 }
 
 .nav > ul .nav-item:hover  > ul {
-  display: block;
+  visibility: visible;
+  opacity: 1;  
   height: auto;
-  background-color: rgba(240, 128, 128, .05);
+  background-color: var(--color-alfa-blue);
 }
 
 .nav-link {
@@ -58,7 +76,8 @@ body {
 }
 
 .nav-item:hover {
-  background-color: rgba(240, 128, 128, .5);
+  background-color: var(--color-alfa-blue);
+  color: #fff;
 }
 
 .nav-btn {
@@ -112,10 +131,11 @@ body {
   .nav-link {
     min-width: 200px;
     padding: .8rem;
+    color: #3d3d3d;
   }
 
   .nav-link:hover {
-    color: lightcoral;
+    color: var(--color-blue);
   }
 
   .nav > ul > .nav-item {

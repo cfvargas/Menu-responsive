@@ -2,6 +2,11 @@
     "extends": "standard",
     "globals": {
         "fetch": true,
-        "Headers": true
+        "Headers": true,
+        "test": true,
+        "expect": true,
+        "describe": true,
+        "jest": true,
+        "beforeEach": true
     }
 }

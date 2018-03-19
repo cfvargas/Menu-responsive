@@ -4,8 +4,10 @@
   "description": "Prueba cantidatos frontend comparamejor",
   "main": "index.js",
   "scripts": {
-    "start": "http-server src/ -p 7575",
-    "server": "json-server ./api/data.json --port 9595 --addsomething"
+    "start": "npm run build && http-server public/ -p 7575",
+    "build": "browserify src/index.js -o public/index.js",
+    "server": "json-server ./api/data.json --port 9595 --addsomething",
+    "test": "jest"
   },
   "author": "Yeison Daza<yeison.daza@comparamejor.com>",
   "license": "MIT",
@@ -14,11 +16,13 @@
     "json-server": "^0.12.1"
   },
   "devDependencies": {
+    "browserify": "^16.1.1",
     "eslint": "^4.18.2",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^22.4.2"
   }
 }

@@ -4,6 +4,14 @@ const createList = require('../src/createList')
 const data = require('../api/data.json')
 
 describe('create dom list', () => {
+  test('create menu without data', () => {
+    const list = createList([], 'nav-list')
+
+    expect(list.tagName).toEqual('UL')
+    expect(list.className).toBeFalsy()
+    expect(list.childElementCount).toBe(0)
+  })
+
   test('create menu', () => {
     const list = createList([data.menu[0]], 'nav-list')
     const link = list.getElementsByTagName('a')[0]
@@ -21,14 +29,16 @@ describe('create dom list', () => {
   })
 
   test('create submenu', () => {
-    const list = createList([data.menu[1]], 'nav-list')
-    const submenu = list.getElementsByClassName('nav-submenu')[0]
+    const list = createList([data.menu[2]], 'nav-list')
+    const submenu = list.getElementsByClassName('nav-submenu')
 
     expect(list.tagName).toEqual('UL')
     expect(list.className).toEqual('nav-list')
 
-    expect(submenu.tagName).toEqual('UL')
-    expect(submenu.className).toEqual('nav-submenu')
-    expect(submenu.childElementCount).toBe(data.menu[1].submenu.length)
+    expect(submenu.length).toBe(3)
+
+    expect(submenu[0].tagName).toEqual('UL')
+    expect(submenu[0].className).toEqual('nav-submenu')
+    expect(submenu[0].childElementCount).toBe(data.menu[2].submenu.length)
   })
 })
